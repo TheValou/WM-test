@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple test to have good notificatgions based on date time in params
 
-Things you may want to cover:
+** Launching the project
 
-* Ruby version
+`rake db:reset`
+`rails server`
 
-* System dependencies
+** Testing the route
 
-* Configuration
+You got an endpoint "http://localhost:3000/api/v1/phases/get_notifications" with params "current_date" and "phase_id"
 
-* Database creation
+If you don't provide a phase_id, one will be picked randomly. You must provide a current_date
 
-* Database initialization
+Examples :
 
-* How to run the test suite
+* `http://localhost:3000/api/v1/phases/get_notifications?current_date=2024-08-26T11:34+01:00`
 
-* Services (job queues, cache servers, search engines, etc.)
+* `http://localhost:3000/api/v1/phases/get_notifications?current_date=2024-08-26T15:34+01:00`
 
-* Deployment instructions
-
-* ...
+* `http://localhost:3000/api/v1/phases/get_notifications?current_date=2015-06-11T11:34+01:00&phase_id=LUTEAL_BEGIN_BOOST`
