@@ -6,5 +6,5 @@ JSON.parse(file).each do |phase_object|
   ph = Phase.create!(name: phase_properties['phase_name']['title'].first['plain_text'],
                      end: phase_properties['end']['number'], start: phase_properties['start']['number'], is_first_cycle_logged: phase_properties['is_first_cycle_logged']['checkbox'])
   Notification.create!(messages: messages, priority: phase_properties['priority'].try(:[], 'number'), phase_id: ph.id,
-                       moment: phase_properties['moment']['select'].try(:[], 'name'))
+                       moment: Notification.get_moment(phase_properties['moment']['select'].try(:[], 'name')))
 end
